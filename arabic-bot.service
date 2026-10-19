@@ -1,0 +1,16 @@
+# Файл для сервера (VPS) на Ubuntu/Debian. Положи в /etc/systemd/system/arabic-bot.service
+# Замени ПОЛЬЗОВАТЕЛЬ и путь /home/ПОЛЬЗОВАТЕЛЬ/arabic_bot на свои.
+[Unit]
+Description=Arabic study Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ПОЛЬЗОВАТЕЛЬ
+WorkingDirectory=/home/ПОЛЬЗОВАТЕЛЬ/arabic_bot
+ExecStart=/home/ПОЛЬЗОВАТЕЛЬ/arabic_bot/venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
